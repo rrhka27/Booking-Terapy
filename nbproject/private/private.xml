@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/ManageTherapyServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/models/User.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/BookingHistoryServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/template/sidebar.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/admin/manage_bookings.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/user/dashboard.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/register.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/home.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/ReportServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/template/footer.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/utils/EmailUtil.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/CreateBookingServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/admin/reports.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/models/Therapy.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/DashboardServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/user/create_booking.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/admin/manage_users.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/user/therapies.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/ManageBookingServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/models/Booking.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/admin/manage_therapies.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/ManageUserServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/ProfileServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/user/profile.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/src/java/controllers/LoginServlet.java</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/template/navbar.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/views/user/booking_history.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/index.jsp</file>
+            <file>file:/C:/Users/rakha/Downloads/TherapyBooking/web/login.jsp</file>
+        </group>
+    </open-files>
+</project-private>
