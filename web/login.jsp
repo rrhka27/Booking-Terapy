@@ -40,6 +40,8 @@
             padding: 15px;
             border-radius: 10px;
             font-weight: 600;
+            transition: all 0.3s ease;
+            color: white;
         }
         .btn-primary-custom:hover {
             transform: translateY(-2px);
@@ -67,6 +69,11 @@
             </button>
         </form>
         <p class="text-center mt-3">Belum punya akun? <a href="register.jsp">Daftar sekarang</a></p>
+        <div class="text-center mt-3">
+            <a href="index.jsp" class="btn btn-primary-custom w-100">
+                <i class="fas fa-home me-2"></i>Kembali ke Beranda
+            </a>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

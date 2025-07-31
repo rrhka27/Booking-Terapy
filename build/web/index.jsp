@@ -417,62 +417,6 @@
             font-size: 2rem;
         }
 
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 100px 0;
-            background: var(--warm-white);
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-light);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(127, 176, 105, 0.2);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background: var(--gradient-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .testimonial-role {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        .stars {
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-
         /* FAQ Section */
         .faq-section {
             padding: 100px 0;
@@ -529,34 +473,22 @@
             background: var(--warm-white);
         }
 
-        .contact-form {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .form-control {
-            border: 2px solid #E8F5E8;
-            padding: 15px 20px;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 0.2rem rgba(127, 176, 105, 0.25);
-        }
-
         .contact-info {
             padding: 50px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
         }
 
         .contact-icon {
@@ -569,6 +501,12 @@
             justify-content: center;
             color: white;
             margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            background: var(--accent-color);
+            transform: scale(1.1);
         }
 
         .btn-primary-custom {
@@ -583,6 +521,41 @@
         .btn-primary-custom:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-medium);
+        }
+
+        .map-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 90, 61, 0.1);
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .map-container:hover .map-overlay {
+            opacity: 0;
         }
 
         /* Footer */
@@ -654,12 +627,12 @@
                 font-size: 2.5rem;
             }
             
-            .contact-form {
-                padding: 30px;
-            }
-            
             .gallery-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .map-container iframe {
+                height: 250px;
             }
         }
 
@@ -676,9 +649,9 @@
             .service-card .card-body {
                 padding: 20px;
             }
-            
-            .testimonial-card {
-                padding: 30px 20px;
+
+            .map-container iframe {
+                height: 200px;
             }
         }
 
@@ -728,7 +701,7 @@
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <i class="fas fa-leaf me-2"></i>Jasa Terapi MI
+                <i class="fas fa-spa me-2"></i>Jasa Terapi MI
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -743,9 +716,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#gallery">Galeri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimoni</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#faq">FAQ</a>
@@ -781,28 +751,16 @@
     <section class="stats-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-card">
-                        <div class="stat-number" data-count="1500">0</div>
-                        <div class="stat-label">Klien Puas</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="stat-card">
                         <div class="stat-number" data-count="5">0</div>
                         <div class="stat-label">Jenis Terapi</div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="stat-card">
                         <div class="stat-number" data-count="10">0</div>
                         <div class="stat-label">Tahun Pengalaman</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-card">
-                        <div class="stat-number" data-count="98">0</div>
-                        <div class="stat-label">% Tingkat Kepuasan</div>
                     </div>
                 </div>
             </div>
@@ -819,10 +777,10 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card card">
-                        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Terapi Bekam">
+                        <img src="asset/bekam.jpg" class="card-img-top" alt="Terapi Bekam">
                         <div class="card-body">
                             <div class="service-icon">
-                                <i class="fas fa-circle-dot"></i>
+                                <i class="fas fa-spa"></i>
                             </div>
                             <h5 class="card-title">Terapi Bekam</h5>
                             <p class="card-text">Teknik pengobatan tradisional dengan menempatkan cawan khusus pada permukaan kulit untuk meningkatkan sirkulasi darah dan mengeluarkan racun dari tubuh.</p>
@@ -831,10 +789,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card card">
-                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Terapi Leuhang">
+                        <img src="asset/leuhang.png" class="card-img-top" alt="Terapi Leuhang">
                         <div class="card-body">
                             <div class="service-icon">
-                                <i class="fas fa-hands"></i>
+                                <i class="fas fa-spa"></i>
                             </div>
                             <h5 class="card-title">Terapi Leuhang</h5>
                             <p class="card-text">Metode pijat tradisional Sunda yang fokus pada titik-titik energi untuk mengembalikan keseimbangan tubuh dan mengatasi ketegangan otot.</p>
@@ -843,10 +801,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card card">
-                        <img src="https://images.unsplash.com/photo-1596547317887-864951a5f025?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Akupuntur">
+                        <img src="asset/akupuntur.jpg" class="card-img-top" alt="Akupuntur">
                         <div class="card-body">
                             <div class="service-icon">
-                                <i class="fas fa-bullseye"></i>
+                                <i class="fas fa-spa"></i>
                             </div>
                             <h5 class="card-title">Akupuntur</h5>
                             <p class="card-text">Pengobatan dengan menusukkan jarum halus steril pada titik-titik tertentu untuk merangsang penyembuhan alami tubuh dan mengatasi berbagai keluhan.</p>
@@ -858,7 +816,7 @@
                         <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Refleksi">
                         <div class="card-body">
                             <div class="service-icon">
-                                <i class="fas fa-foot-print"></i>
+                                <i class="fas fa-spa"></i>
                             </div>
                             <h5 class="card-title">Terapi Refleksi</h5>
                             <p class="card-text">Teknik pijat pada titik refleks kaki yang berkaitan dengan organ-organ tubuh untuk meningkatkan fungsi organ dan melancarkan peredaran darah.</p>
@@ -867,7 +825,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="service-card card">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Relaksasi">
+                        <img src="asset/relaksasi.jpg" class="card-img-top" alt="Relaksasi">
                         <div class="card-body">
                             <div class="service-icon">
                                 <i class="fas fa-spa"></i>
@@ -890,25 +848,25 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ruang Terapi 1">
+                    <img src="https://images.unsplash.com/photo-1648775507324-b48dd3791fa5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ruang Terapi 1">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ruang Terapi 2">
+                    <img src="asset/alat-bekam.jpg" alt="Alat bekam">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ruang Tunggu">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.mDW15xq_loFvLDcxROVT7wAAAA?pid=Api&P=0&h=180" alt="Ruang Tunggu">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Peralatan Terapi">
+                    <img src="http://www.bethesda.kyriakon.or.id/assets/img/gallery/ruang_fisioterapi.png" alt="Peralatan Terapi">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
                     </div>
@@ -923,69 +881,6 @@
                     <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Area Relaksasi">
                     <div class="gallery-overlay">
                         <i class="fas fa-expand"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Testimoni Klien</h2>
-                <p class="section-subtitle">Dengarkan pengalaman nyata dari klien yang telah merasakan manfaat terapi kami</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"Terapi bekam di sini benar-benar membantu mengatasi sakit punggung saya. Terapisnya sangat profesional dan fasilitas kliniknya bersih. Highly recommended!"</p>
-                        <div class="testimonial-author">Sari Dewi</div>
-                        <div class="testimonial-role">Karyawan Swasta</div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"Akupuntur untuk migrain saya sangat efektif. Setelah beberapa sesi, intensitas sakit kepala berkurang drastis. Pelayanannya juga ramah dan nyaman."</p>
-                        <div class="testimonial-author">Budi Santoso</div>
-                        <div class="testimonial-role">Pengusaha</div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-card">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"Terapi refleksi di sini luar biasa! Saya merasa tubuh lebih segar dan tidur lebih nyenyak. Tempatnya juga sangat tenang dan menenangkan."</p>
-                        <div class="testimonial-author">Maya Putri</div>
-                        <div class="testimonial-role">Ibu Rumah Tangga</div>
                     </div>
                 </div>
             </div>
@@ -1059,53 +954,19 @@
                 <p class="section-subtitle">Siap membantu Anda dengan informasi lebih lanjut tentang layanan terapi kami</p>
             </div>
             <div class="row">
-                <div class="col-lg-6 mb-5" data-aos="fade-right">
-                    <div class="contact-form">
-                        <h4 class="mb-4">Kirim Pesan</h4>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control" placeholder="Nama Lengkap" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <input type="email" class="form-control" placeholder="Email" required>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <input type="tel" class="form-control" placeholder="Nomor Telepon" required>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control" required>
-                                    <option value="">Pilih Jenis Terapi</option>
-                                    <option value="bekam">Terapi Bekam</option>
-                                    <option value="leuhang">Terapi Leuhang</option>
-                                    <option value="akupuntur">Akupuntur</option>
-                                    <option value="refleksi">Terapi Refleksi</option>
-                                    <option value="relaksasi">Terapi Relaksasi</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="5" placeholder="Pesan atau Keluhan" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary-custom w-100">
-                                <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6 mb-5" data-aos="fade-right" data-aos-delay="100">
                     <div class="contact-info">
                         <h4 class="mb-4">Informasi Kontak</h4>
-                        <div class="contact-item">
+                        <div class="contact-item" data-aos="fade-right" data-aos-delay="200">
                             <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
                                 <h6>Alamat</h6>
-                                <p>Jl. Kesehatan No. 123, Jakarta Pusat<br>DKI Jakarta 10710</p>
+                                <p>Jl. Jend. Sudirman No. 5, Bandung<br>Jawa Barat 40111</p>
                             </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item" data-aos="fade-right" data-aos-delay="300">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
@@ -1114,7 +975,7 @@
                                 <p>(021) 123-4567<br>+62 812-3456-7890</p>
                             </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item" data-aos="fade-right" data-aos-delay="400">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
@@ -1123,7 +984,7 @@
                                 <p>info@jasaterapimi.com<br>booking@jasaterapimi.com</p>
                             </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item" data-aos="fade-right" data-aos-delay="500">
                             <div class="contact-icon">
                                 <i class="fas fa-clock"></i>
                             </div>
@@ -1132,11 +993,17 @@
                                 <p>Senin - Sabtu: 08:00 - 20:00<br>Minggu: 09:00 - 17:00</p>
                             </div>
                         </div>
-                        <div class="mt-4">
-                            <a href="https://maps.app.goo.gl/HpzJcMB5wDvfXeHw9" target="_blank" class="btn btn-primary-custom">
-                                <i class="fas fa-map-marked-alt me-2"></i>Lihat di Google Maps
-                            </a>
-                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.365427093111!2d107.5912479!3d-6.9467364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e8bee3bd350f%3A0x198c9de6ba46e374!2sSTMIK%20Mardira%20Indonesia!5e0!3m2!1sid!2sid!4v1698765432100!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="map-overlay"></div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="https://www.google.com/maps/place/STMIK+Mardira+Indonesia/@-6.9467311,107.5912479,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68e8bee3bd350f:0x198c9de6ba46e374!8m2!3d-6.9467364!4d107.5938228!16s%2Fg%2F1tcynz6d?entry=tts&g_ep=EgoyMDI1MDcyNy4wIPu8ASoASAFQAw%3D%3D&skid=c04dfbc6-50f2-457c-9468-9891dbd11f20" target="_blank" class="btn btn-primary-custom">
+                            <i class="fas fa-map-marked-alt me-2"></i>Buka di Google Maps
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1171,7 +1038,6 @@
                     <h5>Informasi</h5>
                     <ul class="list-unstyled">
                         <li><a href="#home">Tentang Kami</a></li>
-                        <li><a href="#testimonials">Testimoni</a></li>
                         <li><a href="#faq">FAQ</a></li>
                         <li><a href="#contact">Kontak</a></li>
                         <li><a href="login.jsp">Login</a></li>
@@ -1180,7 +1046,7 @@
                 <div class="footer-section">
                     <h5>Kontak Info</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>Jakarta Pusat</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Bandung, Jawa Barat</li>
                         <li><i class="fas fa-phone me-2"></i>(021) 123-4567</li>
                         <li><i class="fas fa-envelope me-2"></i>info@jasaterapimi.com</li>
                         <li><i class="fas fa-clock me-2"></i>08:00 - 20:00</li>
@@ -1328,30 +1194,6 @@
                     document.body.removeChild(modal);
                 });
             });
-        });
-
-        // Form Submission
-        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            const button = this.querySelector('button[type="submit"]');
-            const originalText = button.innerHTML;
-            
-            button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Mengirim...';
-            button.disabled = true;
-            
-            setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-check me-2"></i>Pesan Terkirim!';
-                button.style.background = '#28a745';
-                
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                    button.style.background = '';
-                    this.reset();
-                }, 2000);
-            }, 2000);
         });
 
         // Navbar Active Link
